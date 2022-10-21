@@ -15,18 +15,23 @@ public class Actividad_actController {
     @Autowired
     private Actividad_actService actividad_actService;
 
-    @PostMapping("/actividad")
+    @PostMapping("/actividades")
     public String saveActividad_act(@RequestBody Actividad_actEntity actividad_act) throws ExecutionException, InterruptedException {
         return actividad_actService.saveActividad_act(actividad_act);
     }
 
-    @GetMapping("/actividad/{id_act}")
-    public Actividad_actEntity getActividad_act(@PathVariable String id_act) throws ExecutionException, InterruptedException {
-        return actividad_actService.getActividad_act(id_act);
+    @GetMapping("/actividades/{id_doc}")
+    public Actividad_actEntity getActividad_act(@PathVariable String id_doc) throws ExecutionException, InterruptedException {
+        return actividad_actService.getActividad_act(id_doc);
     }
 
     @GetMapping("/actividadesList")
     public List<Actividad_actEntity> getActividad_actList() throws ExecutionException, InterruptedException {
         return actividad_actService.getActividad_actList();
+    }
+
+    @DeleteMapping("/actividades/{id_doc}")
+    public String deleteActividad_act(@PathVariable String id_doc) throws ExecutionException, InterruptedException {
+        return actividad_actService.deleteActividad_act(id_doc);
     }
 }

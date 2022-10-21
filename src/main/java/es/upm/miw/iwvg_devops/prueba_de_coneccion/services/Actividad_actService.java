@@ -1,7 +1,6 @@
 package es.upm.miw.iwvg_devops.prueba_de_coneccion.services;
 
 
-
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.DocumentReference;
 import com.google.cloud.firestore.DocumentSnapshot;
@@ -23,7 +22,7 @@ public class Actividad_actService {
 
     public static String saveActividad_act(Actividad_actEntity actividad_act) throws ExecutionException, InterruptedException {
         Firestore firestore = FirestoreClient.getFirestore();
-        ApiFuture<WriteResult> writeResultApiFuture = firestore.collection(COLECTION_NAME).document().set(actividad_act);
+        ApiFuture<WriteResult> writeResultApiFuture = firestore.collection(COLECTION_NAME).document("12345").set(actividad_act);
         return writeResultApiFuture.get().getUpdateTime().toString();
     }
 
@@ -63,5 +62,11 @@ public class Actividad_actService {
 
         }
         return actividad_actList;
+    }
+
+    public String deleteActividad_act(String id_doc) {
+        Firestore firestore = FirestoreClient.getFirestore();
+        ApiFuture<WriteResult> writeResultApiFuture = firestore.collection(COLECTION_NAME).document(id_doc).delete();
+        return "Documento con id_doc " + id_doc + " eliminado con exito";
     }
 }
