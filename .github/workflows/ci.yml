@@ -18,7 +18,7 @@ jobs:
         if: success() # always() failure() success()
         run: >
           mvn -B verify -DskipTests sonar:sonar
-          -Dsonar.projectKey=taras-podolchak_apptravel002_web_api
+          -Dsonar.projectKey=taras-podolchak_apptravel002-web-api
           -Dsonar.organization=taras-podolchak-github
           -Dsonar.host.url=https://sonarcloud.io
           -Dsonar.login=$SONAR_TOKEN
