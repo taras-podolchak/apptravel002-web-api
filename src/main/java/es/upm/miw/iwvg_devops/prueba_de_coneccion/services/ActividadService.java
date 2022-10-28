@@ -7,7 +7,7 @@ import com.google.cloud.firestore.DocumentSnapshot;
 import com.google.cloud.firestore.Firestore;
 import com.google.cloud.firestore.WriteResult;
 import com.google.firebase.cloud.FirestoreClient;
-import es.upm.miw.iwvg_devops.prueba_de_coneccion.entities.Actividad_actEntity;
+import es.upm.miw.iwvg_devops.prueba_de_coneccion.entities.ActividadEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -16,17 +16,17 @@ import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 @Service
-public class Actividad_actService {
+public class ActividadService {
 
-    private static final String COLECTION_NAME = "actividad_act";
+    private static final String COLECTION_NAME = "actividadEntity_test";
 
-    public static String saveActividad_act(Actividad_actEntity actividad_act) throws ExecutionException, InterruptedException {
+    public static String saveActividad_act(ActividadEntity actividad_act) throws ExecutionException, InterruptedException {
         Firestore firestore = FirestoreClient.getFirestore();
         ApiFuture<WriteResult> writeResultApiFuture = firestore.collection(COLECTION_NAME).document("12345").set(actividad_act);
         return writeResultApiFuture.get().getUpdateTime().toString();
     }
 
-    public Actividad_actEntity getActividad_act(String id_act) throws ExecutionException, InterruptedException {
+    public ActividadEntity getActividad_act(String id_act) throws ExecutionException, InterruptedException {
         Firestore firestore = FirestoreClient.getFirestore();
         DocumentReference documentReference = firestore.collection(COLECTION_NAME).document(id_act);
 
@@ -34,39 +34,38 @@ public class Actividad_actService {
 
         DocumentSnapshot document = writeResultApiFuture.get();
 
-        Actividad_actEntity actividad_act = null;
+        ActividadEntity actividad_act = null;
 
         if (document.exists()) {
-            actividad_act = document.toObject(Actividad_actEntity.class);
+            actividad_act = document.toObject(ActividadEntity.class);
             return actividad_act;
         } else {
             return null;
         }
     }
 
-    public List<Actividad_actEntity> getActividad_actList() throws ExecutionException, InterruptedException {
+    public List<ActividadEntity> getActividadList() throws ExecutionException, InterruptedException {
         Firestore firestore = FirestoreClient.getFirestore();
         Iterable<DocumentReference> documentReference = firestore.collection(COLECTION_NAME).listDocuments();
         Iterator<DocumentReference> iterator = documentReference.iterator();
 
-        List<Actividad_actEntity> actividad_actList = new ArrayList<>();
-        Actividad_actEntity actividad_act = null;
+        List<ActividadEntity> actividadList = new ArrayList<>();
+        ActividadEntity actividad;
 
         while (iterator.hasNext()) {
             DocumentReference documentReference1 = iterator.next();
             ApiFuture<DocumentSnapshot> future = documentReference1.get();
             DocumentSnapshot document = future.get();
 
-            actividad_act = document.toObject(Actividad_actEntity.class);
-            actividad_actList.add(actividad_act);
+            actividad = document.toObject(ActividadEntity.class);
+            actividadList.add(actividad);
 
         }
-        return actividad_actList;
+        return actividadList;
     }
 
-    public String deleteActividad_act(String id_doc) {
-        Firestore firestore = FirestoreClient.getFirestore();
-        ApiFuture<WriteResult> writeResultApiFuture = firestore.collection(COLECTION_NAME).document(id_doc).delete();
+    public String deleteActividad(String id_doc) {
+        FirestoreClient.getFirestore().collection(COLECTION_NAME).document(id_doc).delete();
         return "Documento con id_doc " + id_doc + " eliminado con exito";
     }
 }

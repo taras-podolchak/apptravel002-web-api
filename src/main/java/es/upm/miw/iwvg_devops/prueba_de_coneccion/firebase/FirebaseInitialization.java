@@ -13,11 +13,9 @@ public class FirebaseInitialization {
 
     @PostConstruct
     public void initilization() {
-        FileInputStream serviceAccount =
-                null;
+        FileInputStream serviceAccount;
         try {
             serviceAccount = new FileInputStream("./serviceAccountKey.json");
-
 
             FirebaseOptions options = new FirebaseOptions.Builder()
                     .setCredentials(GoogleCredentials.fromStream(serviceAccount))
@@ -29,6 +27,5 @@ public class FirebaseInitialization {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-
     }
 }
