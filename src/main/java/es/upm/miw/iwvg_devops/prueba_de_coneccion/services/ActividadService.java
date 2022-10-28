@@ -19,12 +19,12 @@ public class ActividadService {
 
     private static final String COLECTION_NAME = "actividadEntity_test";
 
-    public String saveActividad_act(ActividadEntity actividad_act) throws ExecutionException, InterruptedException {
-        ApiFuture<WriteResult> writeResultApiFuture = FirestoreClient.getFirestore().collection(COLECTION_NAME).document("12345").set(actividad_act);
+    public String saveActividad(ActividadEntity actividad) throws ExecutionException, InterruptedException {
+        ApiFuture<WriteResult> writeResultApiFuture = FirestoreClient.getFirestore().collection(COLECTION_NAME).document("12345").set(actividad);
         return writeResultApiFuture.get().getUpdateTime().toString();
     }
 
-    public ActividadEntity getActividad_act(String id_act) throws ExecutionException, InterruptedException {
+    public ActividadEntity getActividad(String id_act) throws ExecutionException, InterruptedException {
         DocumentSnapshot document = FirestoreClient.getFirestore().collection(COLECTION_NAME).document(id_act).get().get();
 
         if (document.exists()) {

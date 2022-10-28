@@ -17,14 +17,14 @@ public class ActividadController {
 
     //https://apptravel002-web-api.herokuapp.com/api/actividades
     @PostMapping("/actividades")
-    public String saveActividad(@RequestBody ActividadEntity actividad_act) throws ExecutionException, InterruptedException {
-        return actividadService.saveActividad_act(actividad_act);
+    public String saveActividad(@RequestBody ActividadEntity actividad) throws ExecutionException, InterruptedException {
+        return actividadService.saveActividad(actividad);
     }
 
     //https://apptravel002-web-api.herokuapp.com/api/actividades/1
     @GetMapping("/actividades/{id_doc}")
     public ActividadEntity getActividad(@PathVariable String id_doc) throws ExecutionException, InterruptedException {
-        return actividadService.getActividad_act(id_doc);
+        return actividadService.getActividad(id_doc);
     }
 
     //https://apptravel002-web-api.herokuapp.com/api/actividadesList
@@ -35,7 +35,7 @@ public class ActividadController {
 
     //https://apptravel002-web-api.herokuapp.com/api/actividades/1
     @DeleteMapping("/actividades/{id_doc}")
-    public String deleteActividad_act(@PathVariable String id_doc) {
+    public String deleteActividad(@PathVariable String id_doc) {
         return actividadService.deleteActividad(id_doc);
     }
 }
