@@ -13,9 +13,8 @@ public class FirebaseInitialization {
 
     @PostConstruct
     public void initilization() {
-        FileInputStream serviceAccount;
         try {
-            serviceAccount = new FileInputStream("./serviceAccountKey.json");
+            FileInputStream serviceAccount = new FileInputStream("./serviceAccountKey.json");
 
             FirebaseOptions options = new FirebaseOptions.Builder()
                     .setCredentials(GoogleCredentials.fromStream(serviceAccount))

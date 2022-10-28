@@ -18,7 +18,7 @@ public class ActividadController {
     //https://apptravel002-web-api.herokuapp.com/api/actividades
     @PostMapping("/actividades")
     public String saveActividad(@RequestBody ActividadEntity actividad_act) throws ExecutionException, InterruptedException {
-        return ActividadService.saveActividad_act(actividad_act);
+        return actividadService.saveActividad_act(actividad_act);
     }
 
     //https://apptravel002-web-api.herokuapp.com/api/actividades/1
