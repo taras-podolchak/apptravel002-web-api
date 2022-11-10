@@ -13,7 +13,7 @@ public class ActividadEntity {
     private String salida;
     private String salidacoordenadas;
     private String llegada;
-    private String llegadacoordenadastru_eve;
+    private String llegadacoordenadastru;
     private int horas;
     private String wikiloc;
     private int desnivel;
@@ -34,7 +34,7 @@ public class ActividadEntity {
         this.salida = salida;
         this.salidacoordenadas = salidacoordenadas;
         this.llegada = llegada;
-        this.llegadacoordenadastru_eve = llegadacoordenadastru_eve;
+        this.llegadacoordenadastru = llegadacoordenadastru_eve;
         this.horas = horas;
         this.wikiloc = wikiloc;
         this.desnivel = desnivel;
@@ -129,12 +129,12 @@ public class ActividadEntity {
         this.llegada = llegada;
     }
 
-    public String getLlegadacoordenadastru_eve() {
-        return llegadacoordenadastru_eve;
+    public String getLlegadacoordenadastru() {
+        return llegadacoordenadastru;
     }
 
-    public void setLlegadacoordenadastru_eve(String llegadacoordenadastru_eve) {
-        this.llegadacoordenadastru_eve = llegadacoordenadastru_eve;
+    public void setLlegadacoordenadastru(String llegadacoordenadastru) {
+        this.llegadacoordenadastru = llegadacoordenadastru;
     }
 
     public int getHoras() {
@@ -183,7 +183,7 @@ public class ActividadEntity {
                 ", salida='" + salida + '\'' +
                 ", salidacoordenadas='" + salidacoordenadas + '\'' +
                 ", llegada='" + llegada + '\'' +
-                ", llegadacoordenadastru_eve='" + llegadacoordenadastru_eve + '\'' +
+                ", llegadacoordenadastru_eve='" + llegadacoordenadastru + '\'' +
                 ", horas=" + horas +
                 ", wikiloc='" + wikiloc + '\'' +
                 ", desnivel=" + desnivel +
