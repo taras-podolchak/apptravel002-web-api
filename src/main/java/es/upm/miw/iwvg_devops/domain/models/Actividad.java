@@ -1,6 +1,6 @@
-package es.upm.miw.iwvg_devops.prueba_de_coneccion.entities;
+package es.upm.miw.iwvg_devops.domain.models;
 
-public class ActividadEntity {
+public class Actividad {
 
     private int id_act;
     private int id_eve;
@@ -19,10 +19,11 @@ public class ActividadEntity {
     private int desnivel;
     private int distancia;
 
-    public ActividadEntity() {
+    public Actividad() {
+        //empty for framework
     }
 
-    public ActividadEntity(int id_act, int id_eve, String fecha, String actividadtipo, String nombre, String foto, String descactividad, String nivel, String salida, String salidacoordenadas, String llegada, String llegadacoordenadastru_eve, int horas, String wikiloc, int desnivel, int distancia) {
+    public Actividad(int id_act, int id_eve, String fecha, String actividadtipo, String nombre, String foto, String descactividad, String nivel, String salida, String salidacoordenadas, String llegada, String llegadacoordenadastru, int horas, String wikiloc, int desnivel, int distancia) {
         this.id_act = id_act;
         this.id_eve = id_eve;
         this.fecha = fecha;
@@ -34,7 +35,7 @@ public class ActividadEntity {
         this.salida = salida;
         this.salidacoordenadas = salidacoordenadas;
         this.llegada = llegada;
-        this.llegadacoordenadastru = llegadacoordenadastru_eve;
+        this.llegadacoordenadastru = llegadacoordenadastru;
         this.horas = horas;
         this.wikiloc = wikiloc;
         this.desnivel = desnivel;
@@ -171,7 +172,7 @@ public class ActividadEntity {
 
     @Override
     public String toString() {
-        return "ActividadEntity{" +
+        return "Actividad{" +
                 ", id_act=" + id_act +
                 ", id_eve=" + id_eve +
                 ", fecha='" + fecha + '\'' +
@@ -183,7 +184,7 @@ public class ActividadEntity {
                 ", salida='" + salida + '\'' +
                 ", salidacoordenadas='" + salidacoordenadas + '\'' +
                 ", llegada='" + llegada + '\'' +
-                ", llegadacoordenadastru_eve='" + llegadacoordenadastru + '\'' +
+                ", llegadacoordenadastru='" + llegadacoordenadastru + '\'' +
                 ", horas=" + horas +
                 ", wikiloc='" + wikiloc + '\'' +
                 ", desnivel=" + desnivel +
