@@ -45,7 +45,7 @@
         <!-- coverage report -->
         <jacoco.version>0.8.5</jacoco.version>
         <!-- OpenAPI -->
-        <openapi.version>1.4.6</openapi.version>
+        <openapi.version>1.6.12</openapi.version>
     </properties>
 
     <dependencies>
@@ -53,10 +53,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-webflux</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
         <dependency>
             <groupId>io.projectreactor</groupId>
@@ -86,6 +82,12 @@
                 </exclusion>
             </exclusions>
         </dependency>
+        <dependency>
+            <groupId>com.google.cloud</groupId>
+            <artifactId>spring-cloud-gcp-data-firestore</artifactId>
+            <version>3.4.0</version>
+        </dependency>
+
     </dependencies>
 
     <build>
