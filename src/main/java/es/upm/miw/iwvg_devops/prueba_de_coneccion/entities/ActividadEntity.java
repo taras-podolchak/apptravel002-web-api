@@ -1,7 +1,11 @@
 package es.upm.miw.iwvg_devops.prueba_de_coneccion.entities;
 
-public class ActividadEntity {
+import com.google.cloud.firestore.annotation.DocumentId;
+import com.google.cloud.spring.data.firestore.Document;
 
+@Document(collectionName = "actividadEntity_test")
+public class ActividadEntity {
+    @DocumentId
     private int id_act;
     private int id_eve;
     private String fecha;
